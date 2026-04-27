@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quality in Practice | 5 Whys Root Cause Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="brand-lockup">
+        <p class="brand-name">Quality in Practice</p>
+        <p class="eyebrow">Providing quality, training, and leadership insight since 1995</p>
+        <h1>5 Whys Root Cause Analysis</h1>
+        <p class="hero-copy">A practitioner-friendly root cause tool designed to help teams build a roadmap from problem statement to corrective action.</p>
+      </div>
+      <div class="toolbar">
+        <button id="autofill-therefore" class="button ghost" type="button">Generate Therefore Chain</button>
+        <button id="export-json" class="button ghost" type="button">Export JSON</button>
+        <button id="print-report" class="button ghost" type="button">Print</button>
+        <button id="reset-form" class="button danger" type="button">Start New</button>
+      </div>
+    </header>
+
+    <section class="promise-strip">
+      <article>
+        <p class="summary-label">Your Success</p>
+        <p>Capture the problem clearly and keep the team focused on the issue that matters most.</p>
+      </article>
+      <article>
+        <p class="summary-label">Our Solutions</p>
+        <p>Move from symptoms to cause with a structured facilitation flow that stays easy to use.</p>
+      </article>
+      <article>
+        <p class="summary-label">Our Results</p>
+        <p>Turn the analysis into owned, dated corrective actions ready for follow-through.</p>
+      </article>
+    </section>
+
+    <main class="workspace">
+      <aside class="summary-panel">
+        <section class="summary-card">
+          <p class="summary-label">Progress</p>
+          <p id="progress-value" class="summary-value">0%</p>
+          <p class="summary-note">Based on completed fields in the analysis worksheet.</p>
+        </section>
+        <section class="summary-card">
+          <p class="summary-label">Corrective Actions</p>
+          <p id="action-count" class="summary-value">0</p>
+          <p class="summary-note">Rows currently in the action plan.</p>
+        </section>
+        <section class="summary-card">
+          <p class="summary-label">Nearest Due Date</p>
+          <p id="next-due-date" class="summary-value">None</p>
+          <p class="summary-note">Earliest due date from the action table.</p>
+        </section>
+      </aside>
+
+      <form id="five-whys-form" class="analysis-grid">
+        <section class="panel panel-wide">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Analysis Setup</p>
+              <h2>Analysis Details</h2>
+            </div>
+          </div>
+          <div class="meta-grid">
+            <label>
+              <span>Analysis Title</span>
+              <input name="analysisTitle" type="text" placeholder="Example: CAPA Delay Review">
+            </label>
+            <label>
+              <span>Facilitator</span>
+              <input name="facilitator" type="text" placeholder="Name">
+            </label>
+            <label>
+              <span>Department or Team</span>
+              <input name="department" type="text" placeholder="Quality, Operations, Manufacturing, etc.">
+            </label>
+            <label>
+              <span>Date</span>
+              <input name="analysisDate" type="date">
+            </label>
+          </div>
+        </section>
+
+        <section class="panel panel-wide">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Worksheet Step 1</p>
+              <h2>Problem Statement</h2>
+            </div>
+          </div>
+          <label class="field-block">
+            <span>Describe the issue clearly, specifically, and in business terms.</span>
+            <textarea name="problemStatement" rows="4" placeholder="What happened, where did it occur, and what was the impact?"></textarea>
+          </label>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Worksheet Step 2</p>
+              <h2>Why Analysis</h2>
+            </div>
+          </div>
+          <div class="stack">
+            <label class="field-block">
+              <span>1st Why</span>
+              <textarea name="why1" rows="3"></textarea>
+            </label>
+            <label class="field-block">
+              <span>2nd Why</span>
+              <textarea name="why2" rows="3"></textarea>
+            </label>
+            <label class="field-block">
+              <span>3rd Why</span>
+              <textarea name="why3" rows="3"></textarea>
+            </label>
+            <label class="field-block">
+              <span>4th Why</span>
+              <textarea name="why4" rows="3"></textarea>
+            </label>
+            <label class="field-block">
+              <span>5th Why</span>
+              <textarea name="why5" rows="3"></textarea>
+            </label>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Worksheet Step 3</p>
+              <h2>Therefore Summary</h2>
+            </div>
+          </div>
+          <div class="stack">
+            <label class="field-block">
+              <span>1st Therefore</span>
+              <textarea name="therefore1" rows="3"></textarea>
+            </label>
+            <label class="field-block">
+              <span>2nd Therefore</span>
+              <textarea name="therefore2" rows="3"></textarea>
+            </label>
+            <label class="field-block">
+              <span>3rd Therefore</span>
+              <textarea name="therefore3" rows="3"></textarea>
+            </label>
+            <label class="field-block">
+              <span>4th Therefore</span>
+              <textarea name="therefore4" rows="3"></textarea>
+            </label>
+            <label class="field-block">
+              <span>5th Therefore (Root Cause)</span>
+              <textarea name="therefore5" rows="3"></textarea>
+            </label>
+          </div>
+        </section>
+
+        <section class="panel panel-wide">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Worksheet Step 4</p>
+              <h2>Root Cause Identified</h2>
+            </div>
+          </div>
+          <label class="field-block">
+            <span>Document the root cause conclusion in one direct statement.</span>
+            <textarea name="rootCause" rows="4" placeholder="Summarize the root cause identified through the analysis."></textarea>
+          </label>
+        </section>
+
+        <section class="panel panel-wide">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Worksheet Step 5</p>
+              <h2>Corrective Actions</h2>
+            </div>
+            <button id="add-action" class="button" type="button">Add Action</button>
+          </div>
+          <div class="table-wrap">
+            <table class="actions-table">
+              <thead>
+                <tr>
+                  <th>Action</th>
+                  <th>Owner</th>
+                  <th>Due Date</th>
+                  <th class="screen-only">Remove</th>
+                </tr>
+              </thead>
+              <tbody id="actions-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </form>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <p class="brand-name">Quality in Practice</p>
+        <p class="footer-copy">We put ideas into practice with practical tools for quality, operational excellence, and leadership execution.</p>
+      </div>
+      <a class="footer-link" href="https://www.qualityinpractice.solutions/" target="_blank" rel="noreferrer">qualityinpractice.solutions</a>
+    </footer>
+  </div>
+
+  <template id="action-row-template">
+    <tr>
+      <td><textarea data-field="action" rows="2" placeholder="Describe the corrective action"></textarea></td>
+      <td><input data-field="owner" type="text" placeholder="Owner"></td>
+      <td><input data-field="dueDate" type="date"></td>
+      <td class="screen-only"><button class="button icon-button remove-action" type="button" aria-label="Remove row">X</button></td>
+    </tr>
+  </template>
+
+  <script src="./script.js"></script>
+</body>
+</html>
